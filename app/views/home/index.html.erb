@@ -1,0 +1,10 @@
+<% @feeds.values.each do |feed| %>
+  <h2><%= link_to feed.title, feed.url %></h2>
+
+  <% feed.entries.each do |entry| %>
+    <p>
+      <h3><%= link_to entry.title.sanitize, entry.url %></h3>
+      <%= entry.summary.sanitize.html_safe %>
+    </p>
+  <% end %>
+<% end %>
